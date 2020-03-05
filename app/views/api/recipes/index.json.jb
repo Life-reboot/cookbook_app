@@ -1,0 +1,11 @@
+@recipes.map do |recipe|
+  {
+    id: recipe.id,
+    title: recipe.title,
+    chef: recipe.chef,
+    prep_time: recipe.prep_time,
+    image_url: recipe.image_url,
+    directions: recipe.directions,
+    ingredients: recipe.ingredients,
+  }
+end
