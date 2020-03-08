@@ -7,5 +7,11 @@
     image_url: recipe.image_url,
     directions: recipe.directions,
     ingredients: recipe.ingredients,
+    formatted: {
+      ingredients: recipe.ingredients_list,
+      directions: recipe.directions_list,
+      created_at: recipe.friendly_created_at,
+      prep_time: recipe.friendly_prep_time,
+    },
   }
 end
