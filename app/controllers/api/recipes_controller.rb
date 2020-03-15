@@ -19,6 +19,7 @@ class Api::RecipesController < ApplicationController
       directions: params[:input_directions],
       prep_time: params[:input_prep_time],
       image_url: params[:input_image_url],
+      user_id: current_user.id,
     )
     @recipe.save
     render "show.json.jb"
