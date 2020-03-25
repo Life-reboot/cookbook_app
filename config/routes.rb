@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/recipes/new" => "recipes#new"
   post "/recipes" => "recipes#create"
   get "/recipes/:id" => "recipes#show"
+  get "/recipes/:id/edit" => "recipes#edit"
 
   namespace :api do
     post "/users" => "users#create"
