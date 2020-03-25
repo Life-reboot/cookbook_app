@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
     )
     @recipe.save
     # render "show.html.erb"
-    redirect_to "/recipes"
+    redirect_to "/recipes/#{@recipe.id}"
   end
 
   def show
