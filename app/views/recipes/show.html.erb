@@ -6,4 +6,10 @@
 <p>Ingredients: <%= @recipe.ingredients %></p>
 <p>Directions: <%= @recipe.directions %></p>
 <a href="/recipes/<%= @recipe.id %>/edit">Edit this recipe</a>
+
+<form method="post" action="/recipes/<%= @recipe.id %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Destroy this recipe">
+</form>
+
 <a href="/recipes">Back to all recipes</a>
