@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  validates :title, presence: true
+  validates :chef, presence: true
 
   def directions_list
     directions.split(", ")

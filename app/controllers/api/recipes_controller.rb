@@ -21,8 +21,11 @@ class Api::RecipesController < ApplicationController
       image_url: params[:input_image_url],
       user_id: current_user.id,
     )
-    @recipe.save
-    render "show.json.jb"
+    if @recipe.save
+      render "show.json.jb"
+    else
+      render json: { errors: @recipe.errors.full_messages }, status: 422
+    end
   end
 
   def show
