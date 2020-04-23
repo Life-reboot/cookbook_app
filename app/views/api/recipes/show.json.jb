@@ -6,4 +6,5 @@
   image_url: @recipe.image_url,
   directions: @recipe.directions,
   ingredients: @recipe.ingredients,
+  user_id: @recipe.user_id,
 }

@@ -13,5 +13,7 @@
       created_at: recipe.friendly_created_at,
       prep_time: recipe.friendly_prep_time,
     },
+    user_id: recipe.user_id,
+    created_at: recipe.created_at,
   }
 end
