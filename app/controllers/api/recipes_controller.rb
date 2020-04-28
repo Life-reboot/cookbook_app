@@ -1,4 +1,6 @@
 class Api::RecipesController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
+
   def index
     @recipes = Recipe.all
 
@@ -41,15 +43,18 @@ class Api::RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find_by(id: params[:id])
+    @recipe = current_user.recipes.find_by(id: params[:id])
     @recipe.title = params[:input_title] || @recipe.title
     @recipe.ingredients = params[:input_ingredients] || @recipe.ingredients
     @recipe.directions = params[:input_directions] || @recipe.directions
     @recipe.chef = params[:input_chef] || @recipe.chef
     @recipe.prep_time = params[:input_prep_time] || @recipe.prep_time
     @recipe.image_url = params[:input_image_url] || @recipe.image_url
-    @recipe.save
-    render "show.json.jb"
+    if @recipe.save
+      render "show.json.jb"
+    else
+      render json: { errors: @recipe.errors.full_messages }, status: 422
+    end
   end
 
   def destroy
